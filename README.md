@@ -1,1 +1,1 @@
-# exercicios-js-ts
+# exercicios-html-css-js
