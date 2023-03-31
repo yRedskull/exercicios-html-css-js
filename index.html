@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby</title>
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: rgb(44, 44, 44);
+            height: 100vh;
+            display: flex;
+        }
+        
+        div.links {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 3px solid black;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
+            text-align: center;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 50px;
+            border-radius: 10px;
+        }
+
+        div.links:hover {
+            box-shadow: 0px 0px 10px rgba(5, 3, 102, 0.637);
+        }
+        div a {
+            
+            position: absolute;
+            text-decoration: none;
+            color: white;
+            font-size: 3em;
+            padding: 3px;
+
+            left: 50%;
+            bottom: 50%;
+
+            transform: translate(-50%);
+        }
+
+        a:hover {
+            color: rgb(66, 94, 255);
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="links">
+            <a href="Calculos/" title="Calculos/" target="_blank">Calculos</a>
+            <p></p>
+    </div>
+    <div class="links">
+        <a href="Tabuada/" target="_blank">Tabuada</a>
+    </div>
+    <div class="links">
+        <a href="Estrelas/" target="_blank">Estrelas</a>
+    </div>
+    <div class="links">
+        <a href="Mascote-Android/" target="_blank">Mascote Android</a>
+    </div>
 </body>
 </html>
