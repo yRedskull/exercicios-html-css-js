@@ -13,61 +13,80 @@
 
         body {
             background-color: rgb(44, 44, 44);
-            height: 100vh;
-            display: flex;
         }
         
+        section.home {
+            margin: 50px;
+            padding: 10px;
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
         div.links {
-            position: relative;
-            width: 300px;
-            height: 300px;
+            min-width: 300px;
+            max-width: 500px;
             border: 3px solid black;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
             text-align: center;
-            margin: 10px;
-            justify-content: center;
-            align-items: center;
             padding: 10px;
-            margin: 50px;
+            margin: 10px;
             border-radius: 10px;
         }
 
         div.links:hover {
-            box-shadow: 0px 0px 10px rgba(5, 3, 102, 0.637);
+            box-shadow: inset 0px 0px 10px rgb(141, 193, 238);
+        }
+
+        div.links > p {
+            color: rgb(141, 193, 238);
+            padding: 10px;
+            margin: 10px;
         }
         div a {
-            
-            position: absolute;
             text-decoration: none;
             color: white;
             font-size: 3em;
             padding: 3px;
-
-            left: 50%;
-            bottom: 50%;
-
-            transform: translate(-50%);
         }
 
         a:hover {
-            color: rgb(66, 94, 255);
+            color: rgb(99, 176, 243);
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="links">
-            <a href="Calculos/" title="Calculos/" target="_blank">Calculos</a>
-            <p></p>
-    </div>
-    <div class="links">
-        <a href="Tabuada/" target="_blank">Tabuada</a>
-    </div>
-    <div class="links">
-        <a href="Estrelas/" target="_blank">Estrelas</a>
-    </div>
-    <div class="links">
-        <a href="Mascote-Android/" target="_blank">Mascote Android</a>
-    </div>
+    <section class="home">
+        <div class="links">
+                <a href="Calculos/" title="Calculos/" target="_blank">Calculos</a>
+                <p>
+                    Variados Calculos. 
+                    Entre eles: quantos foram adicionados, o valor máximo, o valor mínimo, <br>
+                    a soma e a média dos números cadastrados.
+                </p>
+        </div>
+        <div class="links">
+            <a href="Tabuada/" target="_blank">Tabuada</a>
+            <p>
+                Mostra a tabuada do 10 de qualquer número.
+            </p>
+        </div>
+        <div class="links">
+            <a href="Estrelas/" target="_blank">Estrelas</a>
+            <p>
+                Site tematizado, contando o que são as estrelas.
+            </p>
+        </div>
+        <div class="links">
+            <a href="Mascote-Android/" target="_blank">Mascote Android</a>
+            <p>
+                Site tematizado, contando a história por trás do mascote Android da Google.
+            </p>
+        </div>
+    </section>
 </body>
 </html>
