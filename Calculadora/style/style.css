@@ -1,5 +1,5 @@
 :root {
-    --cor-back: rgb(120, 201, 177);
+    --cor-back: #78c9b1;
     --font: Arial, Helvetica, sans-serif;
     --btn-color: rgba(128, 128, 128, 0.26);
 }
@@ -10,17 +10,30 @@
 }
 
 body {
+    position: relative;
+    background-image: linear-gradient(to bottom, #222, var(--cor-back));
     background-color: var(--cor-back);
-    
+    height: 100vh;
+
 }
 
 section#lobby {
+    position: absolute;
     background-color: rgb(253, 253, 253);
-    min-width: 400px;
+    min-width: 200px;
     max-width: 500px;
     padding: 40px;
-    margin: 50px auto;
     border-radius: 10px;
+    box-shadow: 1px 5px 20px #2d31309d;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+section#lobby:hover {
+    box-shadow: 1px 5px 30px #2d3130f8;
 }
 
 section#lobby > h1 {
@@ -36,12 +49,10 @@ section#lobby > h1 {
 }
 
 #calc {
-    height: 50px;
     width: 100%;
     text-align: right;
     font-family: var(--font);
     font-size: 2em;
-
     border: 1px solid rgba(104, 101, 101, 0.575);
 }
 
@@ -51,8 +62,8 @@ p.p-btn {
 }
 
 .btn {
-    width: 100px;
-    height: 50px;
+    width: 100%;
+    height: 40px;
     border-radius: 0px;
     border: 0px;
     font-size: 1.5em;
