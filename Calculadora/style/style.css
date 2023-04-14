@@ -1,0 +1,69 @@
+:root {
+    --cor-back: rgb(120, 201, 177);
+    --font: Arial, Helvetica, sans-serif;
+    --btn-color: rgba(128, 128, 128, 0.26);
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: var(--cor-back);
+    
+}
+
+section#lobby {
+    background-color: rgb(253, 253, 253);
+    min-width: 400px;
+    max-width: 500px;
+    padding: 40px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+section#lobby > h1 {
+    padding: 10px;
+    font-family: var(--font);
+    font-size: 2em;
+    text-align: center;
+}
+
+
+#calculadora {
+    margin: auto;
+}
+
+#calc {
+    height: 50px;
+    width: 100%;
+    text-align: right;
+    font-family: var(--font);
+    font-size: 2em;
+
+    border: 1px solid rgba(104, 101, 101, 0.575);
+}
+
+p.p-btn {
+    padding: 1px;
+    width: 500px;
+}
+
+.btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 0px;
+    border: 0px;
+    font-size: 1.5em;
+    background-color: var(--btn-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgba(88, 88, 88, 0.26);
+}
+
+#del {
+    letter-spacing: -6px;
+}
