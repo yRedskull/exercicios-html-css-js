@@ -1,8 +1,9 @@
 function Calculadora() {
     return {
         display: document.querySelector('#calc'),
-        calcArray: ['C', '(', ')', '/', '.', '<<', '*', '+', '-', '=',
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+        symbolsArray: ['C', '(', ')', '/', '.', '↩', '*', '+', '-', '=', 'Backspace'],
+        numArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+
         Init() {
             this.ListenerKey()
             this.computeClick()
@@ -10,15 +11,14 @@ function Calculadora() {
 
         ListenerKey() {
             this.display.addEventListener('keyup', (e) => {
-                if (e.key in this.calcArray === false) {
-                    this.display.value = String(this.display.value).replace(e.key, '')
+                if (e.key in this.symbolsArray === false || (e.key in this.numArray === false)) {
+                    console.log(e.key)
                     this.display.blur()
                 }
             })
 
             this.display.addEventListener('keypress', (e) => {
-                if (e.key in this.calcArray === false) {
-                this.display.value = String(this.display.value).replace(e.key, '')
+                if (e.key in this.symbolsArray === false || (e.key in this.numArray === false)) {
                 this.display.blur()
                 }
             })
@@ -32,7 +32,7 @@ function Calculadora() {
                         this.Limpar()
                     } else if (el.innerText == '=') {
                         this.Result() 
-                    } else if (el.innerText == '<<' ){
+                    } else if (el.innerText == '↩' ){
                         this.del_case()
                     } else{ 
                         this.display.value += el.innerText
@@ -46,6 +46,7 @@ function Calculadora() {
         Limpar() {
             this.display.value = ''
         },
+
         del_case() {
             this.display.value = String(this.display.value).slice(0, -1)
         }, 
