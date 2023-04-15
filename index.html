@@ -62,6 +62,12 @@
 <body>
     <section class="home">
         <div class="links">
+            <a href="Calculadora/" target="_blank">Calculadora</a>
+            <p>
+                Uma simples calculadora.
+            </p>
+        </div>
+        <div class="links">
                 <a href="Calculos/" title="Calculos/" target="_blank">Calculos</a>
                 <p>
                     Variados Calculos. 
@@ -88,5 +94,17 @@
             </p>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('click', (e) => {
+            const el = e.target
+            const link = el.getElementByTagName('a').getAttribute("href")
+            if (el.classList.contains("links")){
+                window.open(link)
+            }
+        })
+
+        document.getElementsByTagName
+    </script>
 </body>
 </html>
