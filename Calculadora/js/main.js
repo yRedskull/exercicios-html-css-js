@@ -10,8 +10,8 @@ function Calculadora() {
         },
 
         ListenerKey() {
-            this.display.addEventListener('keyup', (e) => {
-                if (e.key in this.symbolsArray === false || (e.key in this.numArray === false)) {
+            document.addEventListener('keyup', (e) => {
+                if (e.key in this.symbolsArray === false || e.key in this.numArray === false) {
                     console.log(e.key)
                     this.display.blur()
                 }
