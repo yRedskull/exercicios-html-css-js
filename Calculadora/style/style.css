@@ -7,11 +7,12 @@
 * {
     padding: 0px;
     margin: 0px;
+    color: white;
 }
 
 body {
     position: relative;
-    background-image: linear-gradient(to bottom, #222, var(--cor-back));
+    background-image: linear-gradient(to bottom left, var(--cor-back), #222);
     background-color: var(--cor-back);
     height: 100vh;
 
@@ -19,16 +20,15 @@ body {
 
 section#lobby {
     position: absolute;
-    background-color: rgb(253, 253, 253);
+    background-color: rgba(0, 0, 0, 0.404);
     min-width: 200px;
-    max-width: 500px;
-    padding: 40px;
+    max-width: 200px;
+
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 1px 5px 20px #2d31309d;
-
     left: 50%;
     top: 50%;
-
     transform: translate(-50%, -50%);
 }
 
@@ -54,6 +54,7 @@ section#lobby > h1 {
     font-family: var(--font);
     font-size: 2em;
     border: 1px solid rgba(104, 101, 101, 0.575);
+    color: rgb(0, 0, 0);
 }
 
 p.p-btn {
