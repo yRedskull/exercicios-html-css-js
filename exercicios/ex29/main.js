@@ -1,10 +1,10 @@
-// 149.352.579-46
+// 149.355.579-06
 /* 
-1x  4x  9x  3x  5x  2x  5x  7x  9x 
+1x  4x  9x  3x  5x  5x  5x  7x  9x 
 10  9   8   7   6   5   4   3   2
-10  36  72  21  30  10  20  21  18 = 238
+10  36  72  21  30  25  20  21  18 = 253
 
-11 - (238 % 11) = 7 (Primeiro dígito)
+11 - (253 % 11) = 0 (Primeiro dígito)
 Se o Primeiro dígito for maior que 9, consideramos 0.
 
 
@@ -42,5 +42,5 @@ Cpf.prototype.isSequencia = function() {
     return this.cpfLimpo[0].repeat(this.cpfLimpo.length) == this.cpfLimpo
 }
 
-const pessoa = new Cpf("14935257946")
+const pessoa = new Cpf("149.355.579-06")
 console.log(pessoa.ValidarCPF())
