@@ -24,14 +24,20 @@ function Calculadora() {
             document.addEventListener('click', (e) => {
                 const el = e.target
                 if (el.classList.contains('btn')){
-                    if (el.innerText == 'C')this.Limpar() 
+                    if (el.innerText == 'C') this.Limpar() 
                     else if (el.innerText == '=') this.Result() 
                     else if (el.innerText == '↩' ) this.del_case() 
                     else {
                         if (this.resultTrue) {
-                            if (el.innerText in this.symbolsArray) this.display.value += el.innerText
-                            else this.display.value = ''
+                            if (el.innerText in this.numArray) {
+                                this.resultTrue = false
+                                return this.display.value = el.innerText
+                            } else{
+                            this.display.value += el.innerText
                             this.resultTrue = false
+                        }
+                        } else {
+                            this.display.value += el.innerText
                         }
                         }
                 }
@@ -42,10 +48,12 @@ function Calculadora() {
         
         this.Limpar = () => {
             this.display.value = ''
+            this.resultTrue = false
         }
 
         this.del_case = () => {
             this.display.value = String(this.display.value).slice(0, -1)
+            this.resultTrue = false
         }
 
         this.Result = () => {
