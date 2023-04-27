@@ -1,7 +1,7 @@
 function Calculadora() {
 
         this.display = document.querySelector('#calc')
-        this.symbolsArray = ['C', '(', ')', '/', '.', '↩', '*', '+', '-', '=', 'Backspace']
+        this.symbolsArray = ['C', '(', ')', "/", '.', '↩', '*', '+', '-', '=', 'Backspace']
         this.numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
         this.resultTrue = false
 
@@ -12,7 +12,13 @@ function Calculadora() {
 
         this.ListenerKey = () => {
             document.addEventListener('keydown', (e) => {
-                if (e.key in this.symbolsArray === false || e.key in this.numArray === false) this.display.blur()
+                this.display.focus()
+                if (e.key in this.symbolsArray 
+                    || e.key in this.numArray 
+                    || e.keyCode == 8) return 
+                console.log(e.key in this.symbolsArray, e )
+                this.display.blur() 
+                
             })
 
             this.display.addEventListener('keypress', (e) => {
