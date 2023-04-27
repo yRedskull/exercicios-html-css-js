@@ -13,9 +13,8 @@ function CpfV() {
         document.addEventListener('keydown', (e) => {
             const el = e.target
             this.display.focus()
-            if (e.keyCode == 8) return
             if (el.id == "cpf-txt") {
-                if (e.ctrlKey) return 
+                if (e.ctrlKey || e.keyCode == 8) return
                 if (this.display.value.length == 14 || e.key in this.symbolsnum === false) this.display.blur()
                 else this.typing()
             }
