@@ -53,8 +53,10 @@ function CpfV() {
         
         if (valNumber1 && valNumber2) {
             this.result.innerText = "CPF Válido!"
+            return true
         }else{ 
-            this.result.innerText = "CPF Inválido!"
+            this.result.innerText = "CPF Inválido!" 
+            return false
         } 
     } else {
         this.result.innerText = ""
