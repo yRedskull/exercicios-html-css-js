@@ -70,6 +70,7 @@ p.p-btn {
     font-size: 1.5em;
     background-color: var(--btn-color);
     cursor: pointer;
+    animation: none;
 }
 
 .btn:hover {
@@ -79,3 +80,24 @@ p.p-btn {
 #del {
     letter-spacing: -6px;
 }
+
+@keyframes hover-btn {
+    0% {
+        background-color: (--btn-color);
+    }
+
+    50% {
+        background-color: rgba(88, 88, 88, 0.26);
+    }
+
+    100% {
+        background-color: var(--btn-color);
+    }
+}
+
+.hover-btn {
+    animation-name: hover-btn;
+    animation-duration: 200ms;
+}
+
+
