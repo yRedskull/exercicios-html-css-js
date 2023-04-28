@@ -56,7 +56,11 @@ function CpfV() {
         }else{ 
             this.result.innerText = "CPF Inválido!"
         } 
-    } else alert('Valor Inválido!!!')
+    } else {
+        this.result.innerText = ""
+        alert('Valor Inválido!!!')
+
+    }
 }
 
     this.validateNumber1 = () => {
