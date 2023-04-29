@@ -13,14 +13,10 @@ class ValidateForm {
             this.handleSubmit(e)
         })
 
-        this.form.addEventListener("keydown", e => {
-            const el = e.target
-
-        })
-
         this.form.addEventListener("click", e => {
             const el = e.target
 
+            if (el.classList.contains('user')) this.campValid()
             if (el.classList.contains("lnr-eye")) {
                 const passwordInput = document.querySelector(".password")
                 const repeatPassword = document.querySelector(".repeat-password")
@@ -46,8 +42,7 @@ class ValidateForm {
 
     handleSubmit(e) {
         e.preventDefault()
-        const campsValid = this.campValid()
-        if (campsValid) {
+        if (this.campValid()) {
             alert("Formulário enviado!")
         }
     }
@@ -138,8 +133,8 @@ class ValidateForm {
 
     beginListener() {
         const elcpf = this.form.querySelector(".cpf")
-        elcpf.addEventListener("keydown", (e) => {
-            if (e.key === "Backspace" || e.ctrlKey) return 
+        elcpf.addEventListener("keydown", (e) => {  
+            if (e.key === "Backspace") return 
             if (!e.key.match("[0-9]")) return e.preventDefault() 
             if (elcpf.value.length == 3 
                 || elcpf.value.length == 7) elcpf.value += '.'
