@@ -2,7 +2,6 @@ function CpfV() {
     this.display = document.getElementById("cpf-txt")
     this.button = document.getElementById("validate")
     this.result = document.getElementById("result")
-    this.symbolsnum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'Backspace']
 
     this.init = () => {
             this.listenerKey()
@@ -14,15 +13,11 @@ function CpfV() {
             const el = e.target
             this.display.focus()
             if (el.id == "cpf-txt") {
-                if (e.ctrlKey || e.keyCode == 8) return
-                if (this.display.value.length == 14 || e.key in this.symbolsnum === false) this.display.blur()
+                if (e.keyCode == 8) return
+                if (!e.key.match("[0-9]")) return e.preventDefault()
                 else this.typing()
             }
             
-        })
-
-        this.display.addEventListener('keypress', (e) => {
-            if (e.key in this.symbolsnum === false) this.display.blur()
         })
     }
 
@@ -48,6 +43,18 @@ function CpfV() {
         this.cpfArray = this.cpflimpo.split('')
         this.finalsnum = this.cpfArray.splice(-2)
 
+        let repeat = 0
+        let lpast
+        for (let l of this.cpflimpo) {
+            if (l == lpast) {
+                repeat += 1
+            }
+            lpast = l
+        }
+        if (repeat >= 10) {
+            this.display.value = ""
+            return alert("Valor inválido")
+        }
         const valNumber1 = this.validateNumber1()
         const valNumber2 = this.validateNumber2()
         
