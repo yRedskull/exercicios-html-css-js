@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">k
     <style>
         * {
             margin: 0px;
@@ -31,6 +32,7 @@
             max-width: 500px;
             border: 3px solid black;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
+            text-decoration: none;
             text-align: center;
             padding: 10px;
             margin: 10px;
@@ -46,7 +48,7 @@
             padding: 10px;
             margin: 10px;
         }
-        div a {
+        div > a {
             text-decoration: none;
             color: white;
             font-size: 3em;
@@ -55,14 +57,13 @@
 
         a:hover {
             color: rgb(99, 176, 243);
-            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <section class="home">
         <div class="links">
-            <a href="Calculadora/" target="_blank">Calculadora</a>
+            <a href="Calculadora/" title="Calculadora/" target="_blank">Calculadora</a>
             <p>
                 Uma simples calculadora.
             </p>
@@ -74,13 +75,13 @@
                 </p>
         </div>
         <div class="links">
-            <a href="Formulário/" target="_blank">Estrelas</a>
+            <a href="Formulário/" title="Formulário/" target="_blank">Estrelas</a>
             <p>
                 Formulário com regras, feito em Javascript.
             </p>
         </div>
         <div class="links">
-            <a href="Estrelas/" target="_blank">Mascote Android</a>
+            <a href="Estrelas/" title="Estrelas/" target="_blank">Mascote Android</a>
             <p>
                 Site tematizado, contando o que são as estrelas.
             </p>
