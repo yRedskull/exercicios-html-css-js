@@ -2,13 +2,45 @@ class ValidateForm {
     constructor() {
         this.form = document.querySelector(".form")
         this.symbolsnum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'Backspace']
+        this.eyesShow = false
         this.events()
     }
 
     events() {
         this.beginListener()
+
         this.form.addEventListener('submit', e => {
             this.handleSubmit(e)
+        })
+
+        this.form.addEventListener("keydown", e => {
+            const el = e.target
+
+        })
+
+        this.form.addEventListener("click", e => {
+            const el = e.target
+
+            if (el.classList.contains("lnr-eye")) {
+                const passwordInput = document.querySelector(".password")
+                const repeatPassword = document.querySelector(".repeat-password")
+
+                if (!this.eyesShow) {
+                    passwordInput.setAttribute("type", "text")
+                    repeatPassword.setAttribute("type", "text")
+
+                    el.classList.add("lnr-eye-clicked")
+                    this.eyesShow = true
+                } else if (this.eyesShow) {
+                    passwordInput.setAttribute("type", "password")
+                    repeatPassword.setAttribute("type", "password")
+
+                    el.classList.remove("lnr-eye-clicked")
+                    this.eyesShow = false
+                }
+                
+                
+            }
         })
     }
 
@@ -107,6 +139,8 @@ class ValidateForm {
     beginListener() {
         const elcpf = this.form.querySelector(".cpf")
         elcpf.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" || e.ctrlKey) return 
+            if (!e.key.match("[0-9]")) return e.preventDefault() 
             if (elcpf.value.length == 3 
                 || elcpf.value.length == 7) elcpf.value += '.'
             else if (elcpf.value.length == 11) elcpf.value += "-"
