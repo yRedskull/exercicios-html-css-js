@@ -2,6 +2,7 @@ class ValidateForm {
     constructor() {
         this.form = document.querySelector(".form")
         this.symbolsnum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'Backspace']
+        this.classList = ["name", "surname", "cpf", "user", "password", "repeat-password"]
         this.eyesShow = false
         this.events()
     }
@@ -16,7 +17,10 @@ class ValidateForm {
         this.form.addEventListener("click", e => {
             const el = e.target
 
-            if (el.classList.contains('user')) this.campValid()
+            for (let cl of this.classList) {
+                if (el.classList.contains(cl)) this.campValid()
+            }
+            
             if (el.classList.contains("lnr-eye")) {
                 const passwordInput = document.querySelector(".password")
                 const repeatPassword = document.querySelector(".repeat-password")
@@ -37,6 +41,17 @@ class ValidateForm {
                 
                 
             }
+        })
+    }
+
+    beginListener() {
+        const elcpf = this.form.querySelector(".cpf")
+        elcpf.addEventListener("keydown", (e) => {  
+            if (e.key === "Backspace") return 
+            if (!e.key.match("[0-9]")) return e.preventDefault() 
+            if (elcpf.value.length == 3 
+                || elcpf.value.length == 7) elcpf.value += '.'
+            else if (elcpf.value.length == 11) elcpf.value += "-"
         })
     }
 
@@ -131,16 +146,7 @@ class ValidateForm {
         if (bORa.toLowerCase() === "a") return camp.insertAdjacentElement("afterend", div)
     }
 
-    beginListener() {
-        const elcpf = this.form.querySelector(".cpf")
-        elcpf.addEventListener("keydown", (e) => {  
-            if (e.key === "Backspace") return 
-            if (!e.key.match("[0-9]")) return e.preventDefault() 
-            if (elcpf.value.length == 3 
-                || elcpf.value.length == 7) elcpf.value += '.'
-            else if (elcpf.value.length == 11) elcpf.value += "-"
-        })
-    }
+    
 }
 
 const validateF = new ValidateForm()
