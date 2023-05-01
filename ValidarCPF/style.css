@@ -71,6 +71,10 @@ main > button {
 
 }
 
+main > button:hover {
+    background-color: rgba(46, 147, 165, 0.973);
+}
+
 main > button:active {
     background-color: rgb(3, 27, 71);
 }
