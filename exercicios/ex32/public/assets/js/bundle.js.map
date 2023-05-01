@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAAA,KAAK,CAAC,MAAM,CAAC,C","sources":["webpack://ex32/./src/index.js"],"sourcesContent":["alert(\"asdf\")"],"names":["alert"],"sourceRoot":""}
