@@ -13,8 +13,8 @@ function CpfV() {
             const el = e.target
             this.display.focus()
             if (el.id == "cpf-txt") {
-                if (e.keyCode == 8) return
-                if (!e.key.match("[0-9]")) return e.preventDefault()
+                if (e.keyCode == 8 || e.ctrlKey) return
+                if (!e.key.match(/[0-9]/)) return e.preventDefault()
                 else this.typing()
             }
             
@@ -24,7 +24,8 @@ function CpfV() {
     this.computeClick = () => {
         document.addEventListener('click', (e) => {
             const el = e.target
-            if (el.id === "validate") return this.validate()
+            if (el.id === "validate") this.validate()
+            if (el.id === "cpf-txt") this.result.innerText = ''
         })
     }
 
