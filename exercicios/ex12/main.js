@@ -1,21 +1,23 @@
-function Relógio () {
-    const relogio = document.querySelector('#Relógio')
+let seconds = 0
+let minutes = 0
+let hours = 0
+let time
+const iniciar = document.querySelector('#bt-iniciar')
+const pausar = document.querySelector('#bt-pausar')
+const zerar = document.querySelector('#bt-zerar')
+const relogio = document.querySelector('.relogio')
+
+function Timer () {
     const front_seconds = seconds <= 9 ? `0${seconds}` : String(seconds)
     const front_minutes = minutes <= 9 ? `0${minutes}` : String(minutes)
     const front_hours = hours <= 9 ? `0${hours}` : String(hours)
     relogio.innerHTML = `${front_hours}:${front_minutes}:${front_seconds}`
 }
 
-let seconds = 57
-let minutes = 59
-let hours = 23
-let time
-const iniciar = document.querySelector('#bt-iniciar')
-const pausar = document.querySelector('#bt-pausar')
-const zerar = document.querySelector('#bt-zerar')
-const relogio = document.getElementById('.Relógio')
+
 
 iniciar.addEventListener('click', function (event) { 
+    if (relogio.classList.contains("red-color")) relogio.classList.remove("red-color")
     clearInterval(time)
     time = setInterval(function (){
         seconds += 1
@@ -30,7 +32,7 @@ iniciar.addEventListener('click', function (event) {
                     minutes = 0
                     hours += 1
                 }
-            }else {
+            } else {
                 seconds = 0
                 minutes += 1 
             }
@@ -54,7 +56,7 @@ zerar.addEventListener('click', function (event){
     try {
     relogio.classList.remove('red-color')
     relogio.classList.remove('green-color')
-}catch (e) {
+    }catch (e) {
     console.log(e)
 }
     const front_seconds = seconds <= 9 ? `0${seconds}` : String(seconds)
@@ -63,4 +65,4 @@ zerar.addEventListener('click', function (event){
     relogio.innerHTML = `${front_hours}:${front_minutes}:${front_seconds}`
 })
 
-Relógio()
+Timer()
