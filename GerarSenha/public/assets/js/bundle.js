@@ -24,7 +24,7 @@ var gerarLetraMi = function gerarLetraMi() {
 var gerarN = function gerarN() {
   return String.fromCharCode(rand(48, 58));
 };
-var simbolos = "!@#$%¨&*()_-+={[}]~;:.,";
+var simbolos = "!@#$%¨&*()_-+={[}]~^;:.,<>";
 var gerarS = function gerarS() {
   return simbolos[rand(0, simbolos.length)];
 };
@@ -38,7 +38,6 @@ function gerarSenha(qtd, letraMa, letraMi, num, simb) {
     simb && senhaArray.push(gerarS());
   }
   var senha = senhaArray.join("").slice(0, qtd);
-  console.log(senha.length);
   return senha;
 }
 
@@ -627,6 +626,7 @@ document.addEventListener('click', function (e) {
       display.classList.add('display-style');
       display.innerHTML = senha;
     } else {
+      alert('Adicione a quantidade de caracteres que deseja.');
       display.innerHTML = '';
       if (display.classList.contains('display-style')) display.classList.remove('display-style');
     }

@@ -13,6 +13,7 @@ document.addEventListener('click', e => {
             display.classList.add('display-style')
             display.innerHTML = senha
         } else {
+            alert('Adicione a quantidade de caracteres que deseja.')
             display.innerHTML = ''
             if (display.classList.contains('display-style')) display.classList.remove('display-style')
         }

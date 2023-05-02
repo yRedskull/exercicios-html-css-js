@@ -6,7 +6,7 @@ const rand = (min, max) => {
 const gerarLetraMa = () => String.fromCharCode(rand(65, 91))
 const gerarLetraMi = () => String.fromCharCode(rand(97, 123))
 const gerarN = () => String.fromCharCode(rand(48, 58))
-const simbolos = "!@#$%¨&*()_-+={[}]~;:.,"
+const simbolos = "!@#$%¨&*()_-+={[}]~^;:.,<>"
 const gerarS = () => simbolos[rand(0, simbolos.length)]
 
 
@@ -22,6 +22,5 @@ export default function gerarSenha(qtd, letraMa, letraMi, num, simb) {
     }
 
     const senha = senhaArray.join("").slice(0, qtd)
-    console.log(senha.length)
     return senha
 }
