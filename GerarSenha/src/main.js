@@ -9,7 +9,6 @@ document.addEventListener('click', e => {
     if (el.classList.contains('gerar')) {
         const display = document.querySelector(".display")
         const senha = senhaGerada()
-        console.log(senha)
         if (senha) {
             display.classList.add('display-style')
             display.innerHTML = senha

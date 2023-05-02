@@ -6,7 +6,7 @@ const rand = (min, max) => {
 const gerarLetraMa = () => String.fromCharCode(rand(65, 91))
 const gerarLetraMi = () => String.fromCharCode(rand(97, 123))
 const gerarN = () => String.fromCharCode(rand(48, 58))
-const simbolos = String("!@#$%¨&*()_-+={[}]~^;:.,<>")
+const simbolos = String("!@#$%¨&*()_-+={[}]~;:.,")
 const gerarS = () => simbolos[rand(0, simbolos.length)]
 
 

@@ -24,7 +24,7 @@ var gerarLetraMi = function gerarLetraMi() {
 var gerarN = function gerarN() {
   return String.fromCharCode(rand(48, 58));
 };
-var simbolos = String("!@#$%¨&*()_-+={[}]~^;:.,<>");
+var simbolos = String("!@#$%¨&*()_-+={[}]~;:.,");
 var gerarS = function gerarS() {
   return simbolos[rand(0, simbolos.length)];
 };
@@ -627,7 +627,6 @@ document.addEventListener('click', function (e) {
   if (el.classList.contains('gerar')) {
     var display = document.querySelector(".display");
     var senha = (0,_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.senhaGerada)();
-    console.log(senha);
     if (senha) {
       display.classList.add('display-style');
       display.innerHTML = senha;
