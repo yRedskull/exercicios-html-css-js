@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">k
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
     <style>
         * {
             margin: 0px;
@@ -13,25 +13,22 @@
         }
 
         body {
-            background-color: rgb(44, 44, 44);
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgb(58, 107, 212), rgba(0, 0, 0, 0.822)) ;
+            align-items: baseline;
         }
         
         section.home {
-            margin: 50px;
+            margin: 50px auto;
             padding: 10px;
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
         }
 
         div.links {
+            background-color: rgba(255, 0, 34, 0.822);
             min-width: 300px;
             max-width: 500px;
             border: 3px solid black;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
             text-decoration: none;
             text-align: center;
             padding: 10px;
@@ -40,11 +37,30 @@
         }
 
         div.links:hover {
-            box-shadow: inset 0px 0px 10px rgb(141, 193, 238);
+            animation-name: elevacao;
+            animation-duration: 1s;
+            box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.541);
+            margin-bottom: 30px;
+            margin-right: 20px;
+        }
+
+        @keyframes elevacao {
+            0% {
+                margin-bottom: 10px;
+                margin-right: 10px;
+                box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.562);
+            }
+
+            100% {
+                margin-bottom: 30px;
+                margin-right: 20px;
+                box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.541)
+            }
         }
 
         div.links > p {
-            color: rgb(141, 193, 238);
+            color: rgb(230, 230, 230);
+            font-size: 1.3em;
             padding: 10px;
             margin: 10px;
         }
@@ -56,7 +72,7 @@
         }
 
         a:hover {
-            color: rgb(99, 176, 243);
+            color: rgb(243, 164, 99);
         }
     </style>
 </head>
@@ -66,6 +82,12 @@
             <a href="Calculadora/" title="Calculadora/" target="_blank">Calculadora</a>
             <p>
                 Uma simples calculadora.
+            </p>
+        </div>
+        <div class="links">
+            <a href="GerarCPF/public/" title="GerarCPF/public" target="_blank">Gerador de CPF</a>
+            <p>
+                Gera CPFs com o algoritmo da Receita Federal Brasileira.
             </p>
         </div>
         <div class="links">
@@ -81,11 +103,12 @@
             </p>
         </div>
         <div class="links">
-            <a href="Estrelas/" title="Estrelas/" target="_blank">Estrelas</a>
+            <a href="Timer/" title="Timer/" target="_blank">Timer</a>
             <p>
-                Site tematizado, contando o que são as estrelas.
+                Timer contador
             </p>
         </div>
+        
     </section>
 </body>
 </html>
