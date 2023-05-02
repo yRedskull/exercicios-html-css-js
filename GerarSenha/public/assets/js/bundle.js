@@ -24,7 +24,7 @@ var gerarLetraMi = function gerarLetraMi() {
 var gerarN = function gerarN() {
   return String.fromCharCode(rand(48, 58));
 };
-var simbolos = "!@#$%¨&*()_-+={[}]~^;:.,<>";
+var simbolos = String("!@#$%¨&*()_-+={[}]~^;:.,<>");
 var gerarS = function gerarS() {
   return simbolos[rand(0, simbolos.length)];
 };
@@ -38,7 +38,7 @@ function gerarSenha(qtd, letraMa, letraMi, num, simb) {
     simb && senhaArray.push(gerarS());
   }
   var senha = senhaArray.join("").slice(0, qtd);
-  return senha;
+  if (senha.length === qtd) return senha;else gerarSenha(qtd, letraMa, letraMi, num, simb);
 }
 
 /***/ }),
@@ -51,16 +51,21 @@ function gerarSenha(qtd, letraMa, letraMi, num, simb) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "checkMa": () => (/* binding */ checkMa),
+/* harmony export */   "checkMi": () => (/* binding */ checkMi),
+/* harmony export */   "checkN": () => (/* binding */ checkN),
+/* harmony export */   "checkS": () => (/* binding */ checkS),
+/* harmony export */   "qtd": () => (/* binding */ qtd),
 /* harmony export */   "senhaGerada": () => (/* binding */ senhaGerada)
 /* harmony export */ });
 /* harmony import */ var _gerarSenha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gerarSenha */ "./src/modules/gerarSenha.js");
 
+var qtd = document.querySelector('.qtd');
+var checkMa = document.querySelector('.checkMa');
+var checkMi = document.querySelector('.checkMi');
+var checkN = document.querySelector('.checkN');
+var checkS = document.querySelector('.checkS');
 var senhaGerada = function senhaGerada() {
-  var qtd = document.querySelector('.qtd');
-  var checkMa = document.querySelector('.checkMa');
-  var checkMi = document.querySelector('.checkMi');
-  var checkN = document.querySelector('.checkN');
-  var checkS = document.querySelector('.checkS');
   return (0,_gerarSenha__WEBPACK_IMPORTED_MODULE_0__["default"])(qtd.value, checkMa.checked, checkMi.checked, checkN.checked, checkS.checked);
 };
 
@@ -622,14 +627,15 @@ document.addEventListener('click', function (e) {
   if (el.classList.contains('gerar')) {
     var display = document.querySelector(".display");
     var senha = (0,_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.senhaGerada)();
+    console.log(senha);
     if (senha) {
       display.classList.add('display-style');
       display.innerHTML = senha;
-    } else {
+    } else if (!_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.qtd.value) {
       alert('Adicione a quantidade de caracteres que deseja.');
       display.innerHTML = '';
-      if (display.classList.contains('display-style')) display.classList.remove('display-style');
-    }
+      display.classList.remove('display-style');
+    } else if (!_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.checkMa.checked && !_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.checkMi.checked && !_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.checkN.checked && !_modules_pegarSenha__WEBPACK_IMPORTED_MODULE_0__.checkS.checked) alert('Selecione alguma das opções.');
   }
 });
 })();

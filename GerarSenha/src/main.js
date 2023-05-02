@@ -1,4 +1,4 @@
-import {senhaGerada} from './modules/pegarSenha'
+import {senhaGerada, qtd, checkMa, checkMi, checkN, checkS} from './modules/pegarSenha'
 
 import './assets/css/style.css'
 
@@ -9,14 +9,15 @@ document.addEventListener('click', e => {
     if (el.classList.contains('gerar')) {
         const display = document.querySelector(".display")
         const senha = senhaGerada()
+        console.log(senha)
         if (senha) {
             display.classList.add('display-style')
             display.innerHTML = senha
-        } else {
+        } else if(!qtd.value){
             alert('Adicione a quantidade de caracteres que deseja.')
             display.innerHTML = ''
-            if (display.classList.contains('display-style')) display.classList.remove('display-style')
-        }
+            display.classList.remove('display-style')
+        } else if (!checkMa.checked && !checkMi.checked && !checkN.checked && !checkS.checked) alert('Selecione alguma das opções.')
     }
 })
 
