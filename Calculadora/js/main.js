@@ -1,9 +1,10 @@
 class Calculadora {
     constructor() {
         this.display = document.querySelector('#calc')
-        this.symbolsTextArray = ['C', '(', ')', "/", '.', '↩', '*', '+', '-', '=', 'Backspace']
-        this.symbolsIdObj = {dvs: 111, x: 106, plus: 107, minus: 109, dot: 110, equal: 13}
-        this.numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+        this.symbolsTextArray = ['C', '(', ')', "/", ',', '↩', '*', '+', '-', '=', 'Backspace']
+        this.symbolsIdObj = {dvs: "/", x: "*", plus: "+", minus: "-", dot: ",", equal: "Enter"}
+        this.arrowArray = ["ArrowUp", "ArrowRight", "ArrowDown",  "ArrowLeft"]
+        this.numArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
         this.resultTrue = false}
 
     init = () => {
@@ -15,17 +16,24 @@ class Calculadora {
         document.addEventListener('keydown', (e) => {
             this.display.focus()
             if (this.resultTrue) {
-                if (this.numArray.includes(e.key)) this.display.value = ''
+                if (this.numArray.includes(e.key)) {
+                    this.resultTrue = false
+                    this.display.value = ''
+                } 
+                if (Object.values(this.symbolsIdObj).includes(e.key)){
+                    this.resultTrue = false
+                }
             }
-            if (Object.values(this.symbolsIdObj).includes(e.keyCode)) {
+            if (Object.values(this.symbolsIdObj).includes(e.key)) {
+                if (this.display.value === '') this.display.blur()
                 for (let chave of Object.keys(this.symbolsIdObj)) {
-                    if (this.symbolsIdObj[chave] === e.keyCode) {
+                    if (this.symbolsIdObj[chave] === e.key) {
                         const sym = document.getElementById(chave)
                         sym.classList.add("hover-btn")
                         setTimeout(() => {
                             sym.classList.remove("hover-btn")
                         }, 200)
-                        if (e.keyCode === 13) return this.result()
+                        if (e.key === "Enter") return this.result()
                         return
                         
                     }
@@ -38,14 +46,19 @@ class Calculadora {
                 }, 200)
                 return 
                     
-            } else if ( e.keyCode == 8) return
+            } else if ( e.key == 'Backspace') return
+
+            if (!this.resultTrue || this.arrowArray.includes(e.key)) return
 
             this.display.blur() 
             
         })
 
         this.display.addEventListener('keypress', (e) => {
-            if (e.key === this.display.value.slice(-1)) this.display.blur()
+            if (Object.values(this.symbolsIdObj).includes(e.key) 
+                && Object.values(this.symbolsIdObj).includes(this.display.value.slice(-1))
+                || !Object.values(this.symbolsIdObj).includes(e.key)
+                && !this.numArray.includes(e.key)) this.display.blur()
         })
     }
 
