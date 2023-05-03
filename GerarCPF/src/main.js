@@ -1,7 +1,6 @@
 import GerarCPF from './modules/geradorCPF'
 
 import './assets/css/style.css'
-import './assets/img/faviconCPF.png'
 
 
 const gerar = new GerarCPF()
