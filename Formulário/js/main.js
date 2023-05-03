@@ -47,7 +47,7 @@ class ValidateForm {
     beginListener() {
         const elcpf = this.form.querySelector(".cpf")
         elcpf.addEventListener("keydown", (e) => {  
-            if (e.key === "Backspace") return 
+            if (e.key === "Backspace" || e.ctrlKey) return 
             if (!e.key.match("[0-9]")) return e.preventDefault() 
             if (elcpf.value.length == 3 
                 || elcpf.value.length == 7) elcpf.value += '.'
